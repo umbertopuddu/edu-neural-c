@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "nn.h" // Includes necessary standard headers
+#include "nn.h" // NN Framework header
 
 int main(void) {
     nn_log(LOG_INFO, "--- NN Tester: XOR Problem ---");
