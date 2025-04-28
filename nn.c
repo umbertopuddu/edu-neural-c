@@ -9,7 +9,7 @@
 
 #include "nn.h"
 
-// Define Check Numbers/Versions for storing formats
+// Check Numbers/Versions for storing formats
 #define NN_PARAMS_CHECK 0x4E4E504D         // "NNPM" also referred to as magic (since the number is arbitrary, just to check dtype stored)
 #define ENCODING_PARAMS_VERSION 0x00010001 // Currently 1.1
 #define NN_FINAL_PARAMS_CHECK 0x4E4E4650   // "NNFP"
