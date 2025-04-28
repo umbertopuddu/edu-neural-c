@@ -1,6 +1,7 @@
 # Introduction to Neural Networks
-
-[![Honorable mention - MUST WATCH !!](https://img.youtube.com/vi/PAZTIAfaNr8/0.jpg)](https://www.youtube.com/watch?v=PAZTIAfaNr8)
+ 
+[![Honorable mention](https://img.youtube.com/vi/PAZTIAfaNr8/0.jpg)](https://www.youtube.com/watch?v=PAZTIAfaNr8)
+> Click on the image to play - MUST WATCH !!
 
 A neural network (NN), is your *best guess of an unknown function*. They are inspire by the biological neural networks that constitute your brain. They are the foundation of **Deep Learning**.
 
