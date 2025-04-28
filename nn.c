@@ -86,7 +86,7 @@ const nnFunc nnSigmoid = {sigmoid_forward, sigmoid_backward};
 
 static pfloat tanh_forward(pfloat x)
 {
-    return tanhl(x); // Hyperbolic tangent function: (e^x - e^(-x)) / (e^x + e^(-x)) (use math.h implementation)
+    return tanhl(x); // Hyperbolic tangent function: (e^x - e^(-x)) / (e^x + e^(-x)) (uses math.h implementation)
 }
 
 static pfloat tanh_backward(pfloat x)
@@ -1414,7 +1414,7 @@ bool model_save_params(const Model *m, const char *filename)
     fclose(fp);
     if (!success)
     {
-        nn_log(LOG_ERROR, "Model param saving failed for '%s'.", filename);
+        nn_log(LOG_ERROR, "Model params saving failed for '%s'.", filename);
         remove(filename);
         return false;
     }
