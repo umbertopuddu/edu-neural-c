@@ -38,7 +38,7 @@ int main(void) {
         goto cleanup;
     }
 
-    // Params struct initialization
+    // Hyperparameters
     params = (Params){
         .loss = &nnMSE,             // Mean Squared Error for regression
         .optimizer = opt,
