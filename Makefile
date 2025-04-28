@@ -3,8 +3,8 @@ CC = gcc
 CFLAGS = -Wall -O2 -std=c99
 LDFLAGS = -lm
 
-# Tests (without .c extension)
-TESTS = parab_test xor_test abs_test complex_test
+# Test names
+TESTS = parab_test xor_test abs_test complex_test_root
 
 # Target executables
 TARGETS = $(addprefix nn_,$(TESTS))
@@ -26,5 +26,3 @@ test: $(TARGETS)
 # Clean rule
 clean:
 	rm -f $(TARGETS) *.o *.params *.bin
-
-.PHONY: all clean test

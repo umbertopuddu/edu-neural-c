@@ -5,11 +5,11 @@
 #include "nn.h" // Assuming nn.h includes necessary headers
 
 int main(void) {
-    nn_log(LOG_INFO, "--- Minimal NN Tester: Complex Square Root Fit ---");
+    nn_log(LOG_INFO, "--- NN Tester: Complex Square Root Fit ---");
 
     // --- Configuration ---
-    size_t n_inputs = 1;  // **MOVED** to variable
-    size_t n_outputs = 2; // **MOVED** to variable - real and imaginary parts
+    size_t n_inputs = 1;
+    size_t n_outputs = 2;
     size_t epochs = 150000;
     size_t train_batch_size = 10;
     pfloat learning_rate = 0.01L;
@@ -54,10 +54,8 @@ int main(void) {
         return 1;
     }
 
-    // **UPDATED** Params struct initialization (removed n_inputs, n_outputs)
+    // Hyperparameters
     params = (Params){
-        // .n_inputs = n_inputs,  // No longer needed here
-        // .n_outputs = n_outputs, // No longer needed here
         .loss = &nnMSE,         // still MSE over 2 outputs
         .optimizer = opt,
         .seed = random_seed,
@@ -66,12 +64,10 @@ int main(void) {
     };
 
     // Model structure: 1 -> 12 -> 12 -> 2
-    // **UPDATED** make_model call signature
-    // **UPDATED** nnLinear to nnIdentity
     model = make_model(n_inputs, n_outputs, &params,
-                       12, &nnRelu,     // bigger hidden layer for two outputs
-                       12, &nnRelu,     // bigger hidden layer for two outputs
-                       2, &nnIdentity, // output layer
+                       12, &nnRelu,     
+                       12, &nnRelu,
+                       2, &nnIdentity, // output layer (with regression)
                        0);
     if (!model) {
         nn_log(LOG_ERROR, "Failed to create model structure.");

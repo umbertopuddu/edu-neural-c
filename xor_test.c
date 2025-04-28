@@ -3,11 +3,11 @@
 #include "nn.h" // Includes necessary standard headers
 
 int main(void) {
-    nn_log(LOG_INFO, "--- Refactored NN Tester: XOR Problem ---");
+    nn_log(LOG_INFO, "--- NN Tester: XOR Problem ---");
 
     // --- Configuration ---
-    size_t n_inputs = 2;  // **MOVED** to variable
-    size_t n_outputs = 1; // **MOVED** to variable
+    size_t n_inputs = 2;
+    size_t n_outputs = 1;
     size_t epochs = 100000;
     size_t train_batch_size = 4; // Batch size = dataset size
     pfloat learning_rate = 0.1L;
@@ -41,9 +41,9 @@ int main(void) {
         goto cleanup;
     }
 
-    // **UPDATED** Params struct initialization (removed n_inputs, n_outputs)
+    // Hyperparameters
     params = (Params){
-        .loss = &nnBCE,             // Binary Cross-Entropy suitable for XOR
+        .loss = &nnBCE,             // Binary Cross-Entropy suitable for XOR (or most logical tasks)
         .optimizer = opt,
         .seed = random_seed,
         .log_frequency_epochs = 10000, // Log less frequently for faster runs
@@ -52,7 +52,6 @@ int main(void) {
 
     nn_log(LOG_INFO, "Creating model...");
     // Model: 2 -> 4 (ReLU) -> 1 (Sigmoid)
-    // **UPDATED** make_model call signature
     model = make_model(n_inputs, n_outputs, &params,
                        4, &nnRelu,    // Hidden Layer
                        1, &nnSigmoid, // Output Layer (Sigmoid for probability-like output)
@@ -86,7 +85,7 @@ int main(void) {
             prediction_buffer[0] = prediction[0];
             printf("Input: [%.1Lf, %.1Lf], Target: %.1Lf, Prediction: %.4Lf (Raw: %.4Lf)\n",
                    current_input[0], current_input[1], current_target,
-                   (prediction_buffer[0] > 0.5L ? 1.0L : 0.0L), // Thresholded output
+                   (prediction_buffer[0] > 0.5L ? 1.0L : 0.0L), // Thresholded output (convert to binary)
                    prediction_buffer[0]);                      // Raw sigmoid output
         } else {
             printf("Input: [%.1Lf, %.1Lf], Target: %.1Lf, Prediction: FAILED\n",

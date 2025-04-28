@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>  // For fabsl
-#include "nn.h"    // Includes necessary standard headers
+#include "nn.h" // NN Framework header
 
 int main(void) {
-    nn_log(LOG_INFO, "--- Refactored NN Tester: Absolute Value Fit |x| ---");
+    nn_log(LOG_INFO, "--- NN Tester: Absolute Value Fit |x| ---");
 
     // --- Configuration ---
-    size_t n_inputs = 1;  // **MOVED** to variable
-    size_t n_outputs = 1; // **MOVED** to variable
+    size_t n_inputs = 1;
+    size_t n_outputs = 1;
     size_t epochs = 80000;
     size_t train_batch_size = 10; // Using all samples per batch
     pfloat learning_rate = 0.01L;
@@ -38,10 +38,8 @@ int main(void) {
         goto cleanup;
     }
 
-    // **UPDATED** Params struct initialization (removed n_inputs, n_outputs)
+    // Params struct initialization
     params = (Params){
-        // .n_inputs = n_inputs,  // No longer needed here
-        // .n_outputs = n_outputs, // No longer needed here
         .loss = &nnMSE,             // Mean Squared Error for regression
         .optimizer = opt,
         .seed = random_seed,
@@ -51,8 +49,6 @@ int main(void) {
 
     nn_log(LOG_INFO, "Creating model...");
     // Model: 1 -> 8 (ReLU) -> 8 (ReLU) -> 1 (Identity) - Added a layer
-    // **UPDATED** make_model call signature
-    // **UPDATED** nnLinear to nnIdentity
     model = make_model(n_inputs, n_outputs, &params,
                        8, &nnRelu,      // Hidden Layer 1
                        8, &nnRelu,      // Hidden Layer 2
