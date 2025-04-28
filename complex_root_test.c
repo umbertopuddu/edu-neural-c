@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
-#include "nn.h" // Assuming nn.h includes necessary headers
+#include "nn.h" // NN Framework header
 
 int main(void) {
     nn_log(LOG_INFO, "--- NN Tester: Complex Square Root Fit ---");
