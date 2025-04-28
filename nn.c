@@ -1,4 +1,3 @@
-// Standard library includes first
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdarg.h>
