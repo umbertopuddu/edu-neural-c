@@ -43,7 +43,7 @@ int main(void) {
 
     // Hyperparameters
     params = (Params){
-        .loss = &nnBCE,             // Binary Cross-Entropy suitable for XOR (or most logical tasks)
+        .loss = &nnBCE,             // Binary Cross-Entropy suitable for XOR (and most logical tasks)
         .optimizer = opt,
         .seed = random_seed,
         .log_frequency_epochs = 10000, // Log less frequently for faster runs
