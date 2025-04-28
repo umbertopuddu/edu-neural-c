@@ -63,7 +63,7 @@ int main(void) {
         .randomize_batches = false
     };
 
-    // Model structure: 1 -> 12 -> 12 -> 2
+    // Model structure: 1 -> 12 (ReLU) -> 12 (ReLU) -> 2 (Identity)
     model = make_model(n_inputs, n_outputs, &params,
                        12, &nnRelu,     
                        12, &nnRelu,
