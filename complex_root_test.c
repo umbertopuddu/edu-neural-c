@@ -56,7 +56,7 @@ int main(void) {
 
     // Hyperparameters
     params = (Params){
-        .loss = &nnMSE,         // still MSE over 2 outputs
+        .loss = &nnMSE,         // MSE (suitable for continuos vars)
         .optimizer = opt,
         .seed = random_seed,
         .log_frequency_epochs = 3000,
