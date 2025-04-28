@@ -4,7 +4,7 @@ CFLAGS = -Wall -O2 -std=c99
 LDFLAGS = -lm
 
 # Test names
-TESTS = parab_test xor_test abs_test complex_test_root
+TESTS = parab_test xor_test abs_test complex_root_test
 
 # Target executables
 TARGETS = $(addprefix nn_,$(TESTS))
