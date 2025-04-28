@@ -48,7 +48,7 @@ int main(void) {
     };
 
     nn_log(LOG_INFO, "Creating model...");
-    // Model: 1 -> 8 (ReLU) -> 8 (ReLU) -> 1 (Identity) - Added a layer
+    // Model: 1 -> 8 (ReLU) -> 8 (ReLU) -> 1 (Identity)
     model = make_model(n_inputs, n_outputs, &params,
                        8, &nnRelu,      // Hidden Layer 1
                        8, &nnRelu,      // Hidden Layer 2
